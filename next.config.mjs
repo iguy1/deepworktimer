@@ -10,8 +10,9 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/deepworktimer' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/deepworktimer/' : '',
+  // Remove the basePath and assetPrefix for Netlify deployment
+  // basePath: process.env.NODE_ENV === 'production' ? '/deepworktimer' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/deepworktimer/' : '',
 }
 
 export default nextConfig

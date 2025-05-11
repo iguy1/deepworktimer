@@ -1,12 +1,17 @@
 {
-  "name": "my-v0-project",
+  "homepage": "https://iguy1.github.io/deepworktimer",
+  "name": "deepworktimer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "node -e \"require('fs').writeFileSync('out/.nojekyll', '')\"",
+    "predeploy": "npm run build",
+    "deploy": "npm run build && npm run postbuild && gh-pages -d out",
+    "deploy:dev": "gh-pages -d build -b dev"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -60,9 +65,11 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.11.1",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "gh-pages": "^6.3.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
